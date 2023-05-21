@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
+
 const VersusHuman = ({
   steps,
   setSteps,
@@ -6,6 +9,9 @@ const VersusHuman = ({
   setToggle,
   setMode,
 }) => {
+
+  const [isWin, setIsWin] = useState(false);
+
   let winner = null;
 
   const handleSquareClick = (index) => {
@@ -65,6 +71,17 @@ const VersusHuman = ({
     }
   };
 
+ const confetti = () => {
+  if (winner && winner !== "Draw") {
+    return setIsWin(true)
+  }
+  setIsWin(false);
+ }
+
+  useEffect(() => {
+    confetti();
+  }, [winner]);
+
   const handleNewGame = () => {
     setSteps(Array(9).fill(null));
     setPlayer("X");
@@ -75,8 +92,11 @@ const VersusHuman = ({
     setMode(null);
   };
 
+  console.log(isWin, winner);
+
   return (
     <div className="game-container">
+      {isWin && <Confetti />}
       <h1>{titleText()}</h1>
       <div className="board">
         <div className="board-row">

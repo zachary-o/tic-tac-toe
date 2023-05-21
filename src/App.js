@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./App.css";
 
 import VersusComputer from "./components/VersusComputer";
@@ -57,7 +56,7 @@ function App() {
     }
   };
 
-  console.log(mode, toggle);
+  
 
   return (
     <div className="app-container">
@@ -68,12 +67,8 @@ function App() {
             v69?
           </h1>
           <div className="buttons-container">
-            <button onClick={handleSetVsHumanMode}>
-              Human VS Human
-            </button>
-            <button onClick={handleSetVsAIMode} >
-              Human VS AI
-            </button>
+            <button onClick={handleSetVsHumanMode}>Human vs Human</button>
+            <button onClick={handleSetVsAIMode}>Human vs AI</button>
           </div>
         </div>
       ) : null}

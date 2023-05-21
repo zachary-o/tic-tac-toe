@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import Confetti from "react-confetti";
+
 const VersusComputer = ({
   steps,
   setSteps,
@@ -6,6 +9,8 @@ const VersusComputer = ({
   setToggle,
   setMode,
 }) => {
+  const [isWin, setIsWin] = useState(false);
+
   let winner = null;
 
   const handleSquareClick = (index) => {
@@ -34,7 +39,6 @@ const VersusComputer = ({
         squaresArrayFiltered[
           Math.floor(Math.random() * squaresArrayFiltered.length)
         ];
-      console.log(steps, randomIndex);
       handleSquareClick(randomIndex);
     }
   };
@@ -80,14 +84,30 @@ const VersusComputer = ({
     }
     if (winner === "Draw") {
       return "It's a draw";
+    } 
+    if (winner === "O") {
+      return `The winner is 🤖`;
     } else {
       return `The winner is ${winner}`;
     }
   };
+  console.log(winner);
+  
+  const confetti = () => {
+    if (winner && winner !== "Draw") {
+      return setIsWin(true);
+    }
+    setIsWin(false);
+  };
+
+  useEffect(() => {
+    confetti();
+  }, [winner]);
 
   const handleNewGame = () => {
     setSteps(Array(9).fill(null));
     setPlayer("X");
+    setIsWin(false);
   };
 
   const handleSetToggle = () => {
@@ -97,6 +117,7 @@ const VersusComputer = ({
 
   return (
     <div className="game-container">
+      {isWin && <Confetti />}
       <h1>{titleText()}</h1>
       <div className="board">
         <div className="board-row">
@@ -122,4 +143,4 @@ const VersusComputer = ({
     </div>
   );
 };
-export default VersusComputer
+export default VersusComputer;
