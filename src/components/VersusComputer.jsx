@@ -91,7 +91,6 @@ const VersusComputer = ({
       return `The winner is ${winner}`;
     }
   };
-  console.log(winner);
   
   const confetti = () => {
     if (winner && winner !== "Draw") {

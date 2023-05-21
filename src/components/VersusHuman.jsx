@@ -92,7 +92,6 @@ const VersusHuman = ({
     setMode(null);
   };
 
-  console.log(isWin, winner);
 
   return (
     <div className="game-container">
