@@ -112,6 +112,7 @@ const VersusComputer = ({
   const handleSetToggle = () => {
     setToggle(true);
     setMode(null);
+    setSteps(Array(9).fill(null));
   };
 
   return (

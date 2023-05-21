@@ -9,7 +9,6 @@ const VersusHuman = ({
   setToggle,
   setMode,
 }) => {
-
   const [isWin, setIsWin] = useState(false);
 
   let winner = null;
@@ -71,12 +70,12 @@ const VersusHuman = ({
     }
   };
 
- const confetti = () => {
-  if (winner && winner !== "Draw") {
-    return setIsWin(true)
-  }
-  setIsWin(false);
- }
+  const confetti = () => {
+    if (winner && winner !== "Draw") {
+      return setIsWin(true);
+    }
+    setIsWin(false);
+  };
 
   useEffect(() => {
     confetti();
@@ -90,8 +89,8 @@ const VersusHuman = ({
   const handleSetToggle = () => {
     setToggle(true);
     setMode(null);
+    setSteps(Array(9).fill(null));
   };
-
 
   return (
     <div className="game-container">
