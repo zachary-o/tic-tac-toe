@@ -46,32 +46,33 @@ h1 {
 }
 
 .board-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   border-bottom: 3px solid steelblue;
+  display: flex;
 }
 
 .board-row:last-child {
   border-bottom: none;
 }
 
-p {
-  font-size: 100px;
-  color: cornflowerblue;
+.square {
   width: 150px;
   height: 150px;
-  text-align: center;
-  line-height: 150px;
+  background: none;
+  border: none;
   border-right: 3px solid steelblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-weight: 700;
+  color:cornflowerblue;
 }
 
-p:last-child {
+.square:last-child {
   border-right: none;
 }
 
-button {
+.select {
   font-size: 16px;
   padding: 10px 15px;
   margin: 15px;
@@ -81,7 +82,7 @@ button {
   background-color: #fff;
 }
 
-button:hover {
+.select:hover {
   background-color: steelblue;
   color: #fff;
 }

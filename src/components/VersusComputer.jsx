@@ -113,6 +113,7 @@ const VersusComputer = ({
     setToggle(true);
     setMode(null);
     setSteps(Array(9).fill(null));
+    setPlayer("X");
   };
 
   return (
@@ -121,24 +122,46 @@ const VersusComputer = ({
       <h1>{titleText()}</h1>
       <div className="board">
         <div className="board-row">
-          <p onClick={() => handleSquareClick(0)}>{steps[0]}</p>
-          <p onClick={() => handleSquareClick(1)}>{steps[1]}</p>
-          <p onClick={() => handleSquareClick(2)}>{steps[2]}</p>
+          <button onClick={() => handleSquareClick(0)} disabled={player === "O"} className="square">
+            {steps[0]}
+          </button>
+          <button onClick={() => handleSquareClick(1)} disabled={player === "O"} className="square">
+            {steps[1]}
+          </button>
+          <button onClick={() => handleSquareClick(2)} disabled={player === "O"} className="square">
+            {steps[2]}
+          </button>
         </div>
         <div className="board-row">
-          <p onClick={() => handleSquareClick(3)}>{steps[3]}</p>
-          <p onClick={() => handleSquareClick(4)}>{steps[4]}</p>
-          <p onClick={() => handleSquareClick(5)}>{steps[5]}</p>
+          <button onClick={() => handleSquareClick(3)} disabled={player === "O"} className="square">
+            {steps[3]}
+          </button>
+          <button onClick={() => handleSquareClick(4)} disabled={player === "O"} className="square">
+            {steps[4]}
+          </button>
+          <button onClick={() => handleSquareClick(5)} disabled={player === "O"} className="square">
+            {steps[5]}
+          </button>
         </div>
         <div className="board-row">
-          <p onClick={() => handleSquareClick(6)}>{steps[6]}</p>
-          <p onClick={() => handleSquareClick(7)}>{steps[7]}</p>
-          <p onClick={() => handleSquareClick(8)}>{steps[8]}</p>
+          <button onClick={() => handleSquareClick(6)} disabled={player === "O"} className="square">
+            {steps[6]}
+          </button>
+          <button onClick={() => handleSquareClick(7)} disabled={player === "O"} className="square">
+            {steps[7]}
+          </button>
+          <button onClick={() => handleSquareClick(8)} disabled={player === "O"} className="square">
+            {steps[8]}
+          </button>
         </div>
       </div>
       <div>
-        <button onClick={handleNewGame}>New Game</button>
-        <button onClick={() => handleSetToggle()}>Change Mode</button>
+        <button onClick={handleNewGame} className="select">
+          New Game
+        </button>
+        <button onClick={() => handleSetToggle()} className="select">
+          Change Mode
+        </button>
       </div>
     </div>
   );

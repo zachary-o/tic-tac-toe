@@ -67,8 +67,12 @@ function App() {
             v69?
           </h1>
           <div className="buttons-container">
-            <button onClick={handleSetVsHumanMode}>Human vs Human</button>
-            <button onClick={handleSetVsAIMode}>Human vs AI</button>
+            <button onClick={handleSetVsHumanMode} className="select">
+              Human vs Human
+            </button>
+            <button onClick={handleSetVsAIMode} className="select">
+              Human vs AI
+            </button>
           </div>
         </div>
       ) : null}
